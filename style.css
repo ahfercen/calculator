@@ -11,6 +11,10 @@ body{
     display: flex;
     flex-direction: column;
     width: 70%;
+    background-color: antiquewhite;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 .display{
     display: flex;
@@ -19,9 +23,9 @@ body{
     height: 75px;
     align-items: center;
     font-size: 26px;
+    background-color: white;
 }
 .controls{
     display: flex;
     flex-direction: column;
-    
 }
