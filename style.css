@@ -3,11 +3,16 @@ body{
 }
 .container{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+.title{
+    font-size: 36px;
+    margin-top: 50px;
+}
 .calculator{
-    margin-top: 80px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     width: 70%;
