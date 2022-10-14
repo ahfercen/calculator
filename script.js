@@ -21,14 +21,15 @@ numBtns.forEach(btn => btn.addEventListener('click',numberPressed));
 const opBtns = document.querySelectorAll('.op');
 function opPressed(e){    
     if(!firstNum && displayValue=='') return;
-    if(op == null){
+    if(op == null && displayValue !== ''){
         op = e.target.dataset.key;
         firstNum = Number(displayValue);
         historyBox.textContent = displayValue + " " + op;
         displayValue = '';
         currentBox.textContent = '';
     }else if(op == null && firstNum){
-
+        op = e.target.dataset.key;
+        historyBox.textContent += " " +op;
     }
     else{
         parseDisplay();
@@ -60,15 +61,12 @@ function parseDisplay(){
     displayValue = '';
     currentBox.textContent ='';
     if(op == '+'){
-        console.log('add');
         firstNum += secondNum;
         secondNum = 0;
     }else if(op == '-'){
-        console.log('sub');
         firstNum -= secondNum;
         secondNum = 0;
     }else if(op == 'x'){
-        console.log('mul');
         firstNum *= secondNum;
         secondNum = 0;
     }
