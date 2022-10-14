@@ -20,14 +20,20 @@ numBtns.forEach(btn => btn.addEventListener('click',numberPressed));
 // Operator Button Handling
 const opBtns = document.querySelectorAll('.op');
 function opPressed(e){    
+    if(!firstNum && displayValue=='') return;
     if(op == null){
         op = e.target.dataset.key;
         firstNum = Number(displayValue);
         historyBox.textContent = displayValue + " " + op;
         displayValue = '';
         currentBox.textContent = '';
-    }else{
+    }else if(op == null && firstNum){
 
+    }
+    else{
+        parseDisplay();
+        op = e.target.dataset.key;
+        historyBox.textContent +=  " " + op;
     }
     
 }
@@ -48,6 +54,25 @@ clrBtn.addEventListener('click',clr);
 //Equals Button
 const eqBtn = document.querySelector('.eq');
 function parseDisplay(){
-
+    if(firstNum == null && secondNum == null) return;
+    if(firstNum && secondNum == null && displayValue == '') return;
+    secondNum = Number(displayValue);
+    displayValue = '';
+    currentBox.textContent ='';
+    if(op == '+'){
+        console.log('add');
+        firstNum += secondNum;
+        secondNum = 0;
+    }else if(op == '-'){
+        console.log('sub');
+        firstNum -= secondNum;
+        secondNum = 0;
+    }else if(op == 'x'){
+        console.log('mul');
+        firstNum *= secondNum;
+        secondNum = 0;
+    }
+    historyBox.textContent = firstNum;
+    op = null;
 }
-
+eqBtn.addEventListener('click',parseDisplay);
