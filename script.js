@@ -31,7 +31,11 @@ opBtns.forEach(btn => btn.addEventListener('click', opPressed));
 // Clear Button
 const clrBtn = document.querySelector('.clr');
 function clr(){
-    displayValue.textContent = '';
+    displayValue = '';
     updateDisplay();
 }
-clrBtn.addEventListener('click',clrBtn);
+clrBtn.addEventListener('click',clr);
+
+//Equals Button
+const eqBtn = document.querySelector('.eq');
+console.log(eq);
