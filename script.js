@@ -4,10 +4,11 @@ let firstNum = null;
 let secondNum = null;
 // Display Handling
 let displayValue = '';
-const displayBox = document.querySelector(".display");
+const currentBox = document.querySelector(".current");
+const historyBox = document.querySelector(".history");
 displayBox.textContent = "";
 function updateDisplay(){
-    displayBox.textContent = displayValue;
+    currentBox.textContent = displayValue;
 }
 
 // Number Button Handling
