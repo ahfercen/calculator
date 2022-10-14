@@ -7,13 +7,17 @@ let displayValue = '';
 const displayBox = document.querySelector(".display");
 displayBox.textContent = "";
 function updateDisplay(){
-
+    displayBox.textContent = displayValue;
 }
 
 // Number Button Handling
 const numBtns = document.querySelectorAll('.numbers');
 function numberPressed(e){
-
+    if(firstNum == null || op==null){
+        firstNum = e.target.dataset.key;
+        displayValue += firstNum;
+    }
+    updateDisplay();
 }
 numBtns.forEach(btn => btn.addEventListener('click',numberPressed));
 
@@ -31,6 +35,7 @@ function clr(){
     firstNum = null;
     secondNum = null;
     op = null;
+    updateDisplay();
 }
 clrBtn.addEventListener('click',clr);
 
