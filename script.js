@@ -1,3 +1,5 @@
+// Consistency Vars
+let opLastPressed = false;
 // Display Handling
 let displayValue = '';
 const displayBox = document.querySelector(".display");
@@ -10,11 +12,26 @@ function updateDisplay(){
 const numBtns = document.querySelectorAll('.numbers');
 function numberPressed(e){
     displayValue += e.target.dataset.key;
+    opLastPressed = false;
     updateDisplay();
 }
 numBtns.forEach(btn => btn.addEventListener('click',numberPressed));
 
 // Operator Button Handling
-
 const opBtns = document.querySelectorAll('.op');
-console.log(opBtns);
+function opPressed(e){
+    if(displayValue == '') return;
+    if(opLastPressed) return;
+    displayValue += " " + e.target.dataset.key + " ";
+    opLastPressed = true;
+    updateDisplay();
+}
+opBtns.forEach(btn => btn.addEventListener('click', opPressed));
+
+// Clear Button
+const clrBtn = document.querySelector('.clr');
+function clr(){
+    displayValue.textContent = '';
+    updateDisplay();
+}
+clrBtn.addEventListener('click',clrBtn);
