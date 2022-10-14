@@ -23,7 +23,7 @@ numBtns.forEach(btn => btn.addEventListener('click',numberPressed));
 
 // Operator Button Handling
 const opBtns = document.querySelectorAll('.op');
-function opPressed(e){
+function opPressed(e){    
 
 }
 opBtns.forEach(btn => btn.addEventListener('click', opPressed));
