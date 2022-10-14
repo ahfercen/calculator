@@ -8,11 +8,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-/* Title styling */
-.title{
-    font-size: 36px;
-    margin-top: 50px;
-}
+
 /* Calculator styling */
 .calculator{
     margin-top: 30px;
