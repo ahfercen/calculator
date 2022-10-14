@@ -7,9 +7,14 @@ function updateDisplay(){
 }
 
 // Number Button Handling
-const btns = document.querySelectorAll('.numbers');
+const numBtns = document.querySelectorAll('.numbers');
 function numberPressed(e){
     displayValue += e.target.dataset.key;
     updateDisplay();
 }
-btns.forEach(btn => btn.addEventListener('click',numberPressed));
+numBtns.forEach(btn => btn.addEventListener('click',numberPressed));
+
+// Operator Button Handling
+
+const opBtns = document.querySelectorAll('.op');
+console.log(opBtns);
